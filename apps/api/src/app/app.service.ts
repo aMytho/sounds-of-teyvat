@@ -1,9 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { Message } from '@sounds-of-teyvat/api-interfaces';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class AppService {
-  getData(): Message {
-    return { message: 'Welcome to api!' };
-  }
+    getData() {
+        return { message: "Welcome to api!" };
+    }
 }

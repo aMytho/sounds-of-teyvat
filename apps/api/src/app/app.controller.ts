@@ -1,15 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get } from "@nestjs/common";
 
-import { Message } from '@sounds-of-teyvat/api-interfaces';
-
-import { AppService } from './app.service';
+import { AppService } from "./app.service";
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+    constructor(private readonly appService: AppService) {}
 
-  @Get('hello')
-  getData(): Message {
-    return this.appService.getData();
-  }
+    @Get("hello")
+    getData(): any {
+        return this.appService.getData();
+    }
 }

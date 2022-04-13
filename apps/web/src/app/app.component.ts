@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Message } from "@sounds-of-teyvat/api-interfaces";
+import { Message } from "@sounds-of-teyvat/dto";
 
 @Component({
     selector: "sounds-of-teyvat-root",
