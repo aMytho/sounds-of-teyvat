@@ -1,2 +1,14 @@
-image:
-  file: .gitpod.dockerfile
+tasks:
+  - init: |
+      docker-compose pull
+  - command: |
+      docker-compose up
+ports:
+  - port: 5432
+    onOpen: ignore
+  - port: 4200
+    onOpen: open-browser
+  - port: 3300
+    onOpen: ignore
+  - port: 3000
+    onOpen: ignore
