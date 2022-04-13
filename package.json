@@ -9,6 +9,8 @@
         "start:api": "nx serve --project api",
         "start:web": "nx serve --project web",
         "build": "nx build",
+        "db": "npx prisma migrate dev --schema libs/models/prisma/schema.prisma",
+        "db:generate": "npx prisma generate --schema libs/models/prisma/schema.prisma",
         "test": "nx test"
     },
     "private": true,
