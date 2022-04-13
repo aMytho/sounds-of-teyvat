@@ -15,9 +15,7 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@sounds-of-teyvat/api-interfaces": [
-                "libs/api-interfaces/src/index.ts"
-            ],
+            "@sounds-of-teyvat/dto": ["libs/dto/src/index.ts"],
             "@sounds-of-teyvat/models": ["libs/models/src/index.ts"]
         }
     },
