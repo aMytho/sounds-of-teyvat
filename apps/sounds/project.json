@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "root": "apps/sounds",
+  "sourceRoot": "apps/sounds/src",
+  "prefix": "sounds-of-teyvat",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/sounds",
+        "index": "apps/sounds/src/index.html",
+        "main": "apps/sounds/src/main.ts",
+        "polyfills": "apps/sounds/src/polyfills.ts",
+        "tsConfig": "apps/sounds/tsconfig.app.json",
+        "assets": ["apps/sounds/src/favicon.ico", "apps/sounds/src/assets"],
+        "styles": ["apps/sounds/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/sounds/src/environments/environment.ts",
+              "with": "apps/sounds/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "sounds:build:production"
+        },
+        "development": {
+          "browserTarget": "sounds:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/sounds/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "sounds:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/sounds/src/**/*.ts",
+          "apps/sounds/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/sounds"],
+      "options": {
+        "jestConfig": "apps/sounds/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

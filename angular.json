@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "sounds": "apps/sounds",
+    "sounds-e2e": "apps/sounds-e2e"
+  }
+}

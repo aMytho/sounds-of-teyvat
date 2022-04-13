@@ -1,0 +1,28 @@
+{
+  "root": "apps/sounds-e2e",
+  "sourceRoot": "apps/sounds-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/sounds-e2e/cypress.json",
+        "devServerTarget": "sounds:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "sounds:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/sounds-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["sounds"]
+}
