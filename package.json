@@ -3,10 +3,12 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "prisma:dev:deploy": "npx prisma migrate deploy --schema libs/models/prisma/schema.prisma",
+        "prisma:dev:deploy": "npx prisma migrate dev --schema libs/models/prisma/schema.prisma",
+        "prisma:dev:generate": "npx prisma generate --schema libs/models/prisma/schema.prisma",
         "db:dev:rm": "docker compose rm dev-db -s -f -v",
         "db:dev:up": "docker compose up dev-db -d",
         "db:dev:restart": "npm run db:dev:rm && npm run db:dev:up && npm run prisma:dev:deploy",
+        "db:dev:view": "npx prisma studio --schema libs/models/prisma/schema.prisma",
 
         "prisma:test:deploy": "dotenv -e .env.test -- npx prisma migrate deploy --schema libs/models/prisma/schema.prisma",
         "db:test:rm": "docker compose rm test-db -s -f -v",
