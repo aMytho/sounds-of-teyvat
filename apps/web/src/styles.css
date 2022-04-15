@@ -1,1 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --blue: #129Ae3;
+    --brown: #d3a981;
+    --light-purple: #b293c6;
+    --dark-purple: #9976b1;
+    --green: #44bb97;
+}
+
+body {
+    background-color: var(--blue)
+}
