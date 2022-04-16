@@ -688,7 +688,7 @@ import { Component, OnInit, ViewEncapsulation } from "@angular/core";
                 <span>Plugin for VSCode</span>
               </span>
             </a>
-            <div id="nx-cloud" class="rounded shadow">
+            <div id="nx-cloud" class="rounded shadow" style="background-color: var(--light-purple);">
               <div>
                 <svg
                   viewBox="0 0 120 120"
@@ -748,7 +748,7 @@ import { Component, OnInit, ViewEncapsulation } from "@angular/core";
         </div>
 
         <!--  COMMANDS  -->
-        <div id="commands" class="rounded shadow">
+        <div id="commands" class="rounded shadow" style="background-color: var(--dark-purple);">
           <h2>Next steps</h2>
           <p>Here are some things you can do with Nx:</p>
           <details>
