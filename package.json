@@ -69,6 +69,7 @@
         "@nrwl/nest": "13.10.1",
         "@nrwl/node": "13.10.1",
         "@nrwl/workspace": "13.10.1",
+        "@tailwindcss/typography": "^0.5.2",
         "@types/jest": "27.0.2",
         "@types/node": "16.11.7",
         "@types/passport-jwt": "^3.0.6",
