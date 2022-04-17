@@ -28,6 +28,11 @@ export class UsersController {
         return this.userService.getUserById(id);
     }
 
+    @Get(":id/covers")
+    getUserCovers(@Param('id', ParseIntPipe) id: number) {
+        return this.userService.getCoversOfUser(id);
+    }
+
     @UseGuards(JwtGuard)
     @Patch()
     @UsePipes(ValidationPipe)

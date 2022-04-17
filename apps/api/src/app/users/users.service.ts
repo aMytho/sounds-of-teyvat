@@ -62,4 +62,19 @@ export class UsersService {
             throw new InternalServerErrorException('Internal server error');
         }
     }
+
+    async getCoversOfUser(id: number) {
+        const userFound = await this.prismaService.user.findUnique({
+            where: {
+                id: id,
+            },
+            select: {
+                covers: true
+            }
+        });
+
+        if (!userFound) throw new ForbiddenException('User not found');
+
+        return userFound.covers;
+    }
 }
