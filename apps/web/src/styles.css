@@ -13,6 +13,14 @@
     --green: #44bb97;
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    background-color: var(--blue)
+    background-color: var(--blue);
+    background-image: url("./assets/wallpaper.jpg");
+    background-size: cover;
+    backdrop-filter: blur(7px);
+    height: 100%;
 }
