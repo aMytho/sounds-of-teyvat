@@ -59,7 +59,7 @@ export class AuthService {
     /**
      * Creates an access token for a given user.
      */
-    async signToken(userId: number, email: string): Promise<{access_token: string}> {
+    async signToken(userId: number, email: string): Promise<any> {
         const payload = {
             // Sub must be unqiue
             sub: userId,
@@ -67,12 +67,14 @@ export class AuthService {
         }
 
         const token = await this.jwtService.signAsync(payload, {
-            expiresIn: "30m",
+            expiresIn: "7d",
             secret: this.configService.get('JWT_SECRET')
         });
 
         return {
             access_token: token,
+            expires_in: 604800,
+            current_time: Math.round(new Date().getTime() / 1000)
         }
     }
 }

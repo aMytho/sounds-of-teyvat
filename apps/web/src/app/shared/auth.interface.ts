@@ -2,7 +2,9 @@
  * The access token of a user.
  */
 export interface Token {
-    access_token: string;
+    access_token: string,
+    expires_in: number,
+    current_time: number
 }
 
 export interface AuthResult {
