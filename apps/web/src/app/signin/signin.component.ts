@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 import { Signin } from './signin.default';
 @Component({
@@ -7,7 +8,10 @@ import { Signin } from './signin.default';
     styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-    constructor(private authService: AuthService) {}
+    constructor(
+        public authService: AuthService,
+        private router: Router
+        ) {}
 
     model = new Signin('', '');
     validCredentials = true
@@ -17,13 +21,11 @@ export class SigninComponent implements OnInit {
     }
 
     async onSubmit() {
-        console.log("Attempting to login...");
         console.log(this.model)
         const result = await this.authService.login(this.model);
         if (result.status === "success") {
-            console.log("Login successful!");
+            this.router.navigate(['/']);
         } else {
-            console.log("Login failed!");
             this.validCredentials = false;
         }
     }
