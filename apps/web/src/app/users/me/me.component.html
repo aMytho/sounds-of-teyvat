@@ -1,0 +1,20 @@
+<div class="flex flex-row flex-wrap w-full gap-12 px-8 justify-center">
+    <div *ngIf="user != {}" class="shadow-md rounded px-8 pb-8 prose prose-lg"
+        style="background-color: var(--light-blue);">
+        <h1>{{ user.userName }}</h1>
+        <h3>Profile Info</h3>
+        <p class="ml-1">Email: {{ user.email }}</p>
+        <p class="ml-1">UserId: {{ user.id }}</p>
+
+        <b>Your username and ID are the only things visible to other users. All other info is kept private</b>
+
+    </div>
+    <div *ngIf="user == {}">
+        <p>No user data was found. Reload your browser :)</p>
+    </div>
+</div>
+<div class="flex flex-row flex-wrap w-full gap-12 px-8 justify-center mt-4">
+    <div *ngFor="let cover of covers">
+        <sounds-of-teyvat-covers-list-view [cover]="cover"></sounds-of-teyvat-covers-list-view>
+    </div>
+</div>
