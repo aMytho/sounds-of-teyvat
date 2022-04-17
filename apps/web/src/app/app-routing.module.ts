@@ -8,6 +8,7 @@ const routes: Routes = [
     { path: 'signin', loadChildren: () => import('./signin/signin.module').then(m => m.SigninModule) },
     { path: 'login', loadChildren: () => import('./signin/signin.module').then(m => m.SigninModule) },
     { path: "info", loadChildren: () => import('./site-info/site-info.module').then(m => m.SiteInfoModule) },
+    { path: "users", loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
     { path: "home", component: HomeComponent },
     { path: '', component: HomeComponent },
     { path: '**', component: PageNotFoundComponent }

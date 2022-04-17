@@ -7,9 +7,9 @@
         <p class="text-center">Not seeing what you are looking for? Try
             <span><a href="#" routerLink="/covers/add">adding a cover!</a></span></p>
     </div>
+</div>
+<div class="flex flex-row flex-wrap w-full gap-12 px-8 justify-center mt-4">
     <div *ngFor="let cover of covers">
-        {{cover.title}}
-        {{cover.notes}}
-        {{cover.userId}}
+        <sounds-of-teyvat-covers-list-view [cover]="cover"></sounds-of-teyvat-covers-list-view>
     </div>
 </div>
