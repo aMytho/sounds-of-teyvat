@@ -1,0 +1,44 @@
+<div class="flex flex-row flex-wrap w-full gap-12 px-8 justify-center">
+    <div class="shadow-md rounded px-8 pb-8 prose prose-lg" style="background-color: var(--light-blue);">
+        <h1 class="text-2xl font-bold text-center">Add a Cover</h1>
+        <form (ngSubmit)="onSubmit()" #addCoverForm="ngForm" class="flex flex-col mt-4 text-left">
+            <div>
+                <label for="title" class="text-sm font-bold w-full">The title is the publically searchable name.</label>
+                <input type="text" id="title" required [(ngModel)]="model.title" name="title"
+                    #title="ngModel" class="rounded-md shadow-md w-full py-2 px-1" placeholder="Title">
+                <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+                    Title is required
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <label for="description" class="text-sm font-bold w-full">
+                    Enter a short description about the track. Include artist info if required.</label>
+                <input type="text" id="description" required [(ngModel)]="model.description" name="description"
+                    #description="ngModel" class="rounded-md shadow-md w-full py-2 px-1" placeholder="Description">
+                <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+                    Description is required
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <label for="url" class="text-sm font-bold w-full">(optional) Enter a Youtube URL to the cover.</label>
+                <input type="url" id="url" [(ngModel)]="model.performanceUrl" name="url"
+                    #url="ngModel" class="rounded-md shadow-md w-full py-2 px-1" placeholder="URL">
+            </div>
+
+            <div class="mt-4">
+                <label for="notes" class="text-sm font-bold w-full">Enter the notes for the cover.</label>
+                <textarea type="text" id="notes" required [(ngModel)]="model.notes" name="notes"
+                    #notes="ngModel" class="rounded-md shadow-md w-full py-2 px-1" placeholder=" A A B F W R"></textarea>
+                <div [hidden]="notes.valid || notes.pristine" class="alert alert-danger">
+                    Notes are required
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button class="float-right text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="submit" [disabled]="!addCoverForm.form.valid">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
