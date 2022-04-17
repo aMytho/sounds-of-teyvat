@@ -49,7 +49,16 @@
                 <a href="#" routerLink="/users/me" *ngIf="authService.isLoggedIn"
                     class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logged in as {{getUser().userName}}</a>
 
+                <div class="ml-3 relative" [hidden]="!authService.isLoggedIn">
+                    <div class="flex space-x-4">
+                        <a href="#" (click)="logout()" class="bg-transparent hover:bg-red-400 text-white px-3 py-2 rounded-md text-sm font-medium"
+                            aria-current="page">Log Out</a>
+                    </div>
+                </div>
+
+
             </div>
+            <button class="px-4 py-2 font-semibold text-sm bg-red-400 text-white rounded-full shadow-sm ml-2">Alpha</button>
         </div>
     </div>
 

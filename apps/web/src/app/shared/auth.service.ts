@@ -89,4 +89,15 @@ export class AuthService {
             return {status: "failure", token: null};
         }
     }
+
+    /**
+     * Logs out. Sets state and resets the token info.
+     */
+    logout() {
+        this.isLoggedIn = false;
+        // Reset the token info
+        localStorage.setItem('jwt', '');
+        localStorage.setItem('jwt_expires_in', '');
+        localStorage.setItem('jwt_current_time', '');
+    }
 }
