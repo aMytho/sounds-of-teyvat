@@ -1,115 +1,59 @@
+# Sounds of Teyvat
 
+This project allows users to store and upload Genshin Impact music covers on the Windsong Lyre and other in-game instruments.
 
-# SoundsOfTeyvat
+This project is a monorepo built on [Nx](https://nx.dev). The server is built with [NestJS](https://nestjs.com) and the frontend is built with [Angular](https://angular.io).
 
-This project was generated using [Nx](https://nx.dev).
+[![CodeFactor](https://www.codefactor.io/repository/github/amytho/sounds-of-teyvat/badge/main)](https://www.codefactor.io/repository/github/amytho/sounds-of-teyvat/overview/main)
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## Features
 
-🔎 **Smart, Fast and Extensible Build System**
+- Upload Genshin Impact music covers for in-game instruments.
+- - Includes notes for playing the piece!
+- Comment and upvote covers.
 
-## Quick Start & Documentation
+## Contributing
 
-[Nx Documentation](https://nx.dev/angular)
+Anyone is welcome (and encouraged) to contribute to the project! All skill levels are welcome. While we are primarily looking for programmers, everyone is welcome to help out in any way you can.
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+### Installation
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+To build the project you will need to install the below items:
 
-## Adding capabilities to your workspace
+- Supported version of [NodeJS](https://nodejs.org/en/) 14+
+- [Docker](https://www.docker.com) to run the database. If you don't want a container you can run it on your own system. We use [Postgres](https://www.postgresql.org).
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+Fork the repository. Clone your fork. You will need to install the project dependencies. Run the below command in a command prompt.
+- `npm install`
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+### Config
 
-Below are our core plugins:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@sounds-of-teyvat/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
-
-
-## Env notes
-
-Create a `.env` and a `.env.test` in the root directory. Fill them with the below data replacing the username, password, port, and secret.
+Next you need to setup the config files. Create a `.env` and a `.env.test` in the root directory. Fill them with the below data replacing the username, password, port, and secret with your database values.
 
 ```
 DATABASE_URL="postgresql://user:password@localhost:port/sounds-of-teyvat?schema=public"
 JWT_SECRET="secret"
 ```
+
+If you are using docker you must use the below values from the docker compose file:
+- user: postgres
+- password: 123
+- port: 5434
+
+All values for the `.env.test` are the same except the port. It must be 5435.
+### Running the DB
+
+Now that the config is done you need to start your database. If you are using Docker run `npm run db:dev:up`.
+If you are not using Docker you have to start your Postgres databse manually. Refer to their documentation on how to do so.
+
+### Generating Types
+
+Prisma has built in support for custom DB types. You can generate them by running `npm run prisma:dev:generate`. This will automatically be accomplished when you start the server. However, you can run it manually as well.
+
+### Running the Project
+
+You need to run both the frontend and backend. Run each in a separate terminal window. Both will recompile as changes are made.
+
+`npm run start:api`
+
+`npm run start:web`
