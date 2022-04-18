@@ -5,6 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import * as argon from 'argon2';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { ConfigService } from '@nestjs/config';
+import { Token } from './token.interface';
 
 @Injectable()
 export class AuthService {
@@ -59,7 +60,7 @@ export class AuthService {
     /**
      * Creates an access token for a given user.
      */
-    async signToken(userId: number, email: string): Promise<any> {
+    async signToken(userId: number, email: string): Promise<Token> {
         const payload = {
             // Sub must be unqiue
             sub: userId,

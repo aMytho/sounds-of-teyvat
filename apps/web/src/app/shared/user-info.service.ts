@@ -12,7 +12,7 @@ export class UserInfoService {
      * Gets the user info from the logged in user
      * @param jwt - JWT token
      */
-    async getUserInfo(jwt: string): Promise<any> {
+    async getUserInfo(jwt: string): Promise<void> {
         if (jwt) {
             const response = await fetch('/api/users/me', {
                 method: 'GET',
