@@ -1,0 +1,16 @@
+<div class="flex flex-row flex-wrap w-full gap-12 px-8 justify-center">
+    <div class="shadow-md rounded px-8 pb-8 prose prose-lg" style="background-color: var(--light-blue);">
+        <h3>Uploaded Covers</h3>
+
+        <p>Below is all of the covers that you have uploaded to the site.</p>
+        <div *ngIf="covers.length == 0">
+            <p>No covers were found. Try <span class="hover:underline hover:cursor-pointer text-black" routerLink="/covers/add">uploading one!</span>.</p>
+        </div>
+    </div>
+</div>
+
+<div class="flex flex-row flex-wrap w-full gap-12 px-8 justify-center mt-4" style="flex: 1 1 0px;">
+    <div *ngFor="let cover of covers">
+        <sounds-of-teyvat-covers-list-view [cover]="cover"></sounds-of-teyvat-covers-list-view>
+    </div>
+</div>
