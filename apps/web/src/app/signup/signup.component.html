@@ -1,0 +1,41 @@
+<div class="flex flex-row flex-wrap w-full gap-12 px-8 justify-center">
+    <div class="text-center shadow-md rounded px-8 prose prose-lg" style="background-color: var(--light-blue);">
+        <h2 class="">Sign Up</h2>
+        <form (ngSubmit)="onSubmit()" #signinForm="ngForm" class="flex flex-col mt-4 text-left">
+            <div>
+                <label for="email" class="text-xs font-bold w-full">Email</label>
+                <input type="text" id="email" required [(ngModel)]="model.email" name="email"
+                    #email="ngModel" class="rounded-md shadow-md w-full py-2 px-1" placeholder="Email">
+                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                    Email is required
+                </div>
+            </div>
+
+            <div>
+                <label for="userName" class="text-xs font-bold w-full">Username. This is your public facing username.</label>
+                <input type="text" id="userName" required [(ngModel)]="model.userName" name="userName"
+                    #userName="ngModel" class="rounded-md shadow-md w-full py-2 px-1" placeholder="Username">
+                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                    Username is required
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <label for="password" class="text-xs font-bold w-full">Password. A unique identifier to protect your account.</label>
+                <input type="password" id="password" [(ngModel)]="model.password" name="password"
+                class="rounded-md shadow-md w-full py-2 px-1" placeholder="Password">
+            </div>
+
+            <div class="not-prose flex flex-row">
+                <p class="text-sm hover:underline hover:cursor-pointer" title="Sign In" routerLink="/login">Already have an account?</p>
+                <p class="text-sm font-semibold text-red-500 ml-auto mr-2" [hidden]="validCredentials">Invalid Credentials</p>
+            </div>
+
+            <div class="mt-4">
+                <button class="float-right text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="submit" [disabled]="!signinForm.form.valid">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+    <sounds-of-teyvat-site-info class="self-stretch"></sounds-of-teyvat-site-info>
+</div>

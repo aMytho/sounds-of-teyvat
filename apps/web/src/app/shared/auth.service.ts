@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Signin } from '../signin/signin.default';
+import { SignUp } from '../signup/signup.default';
 import { AuthResult, Token } from './auth.interface';
 import { UserInfoService } from './user-info.service';
 
@@ -76,6 +77,7 @@ export class AuthService {
                 // All good, logged in
                 const json: Token = await response.json();
                 this.setToken(json);
+                this.userService.getUserInfo(this.getToken());
                 return {status: "success", token: this.getToken()};
             } else if (response.status === 403) {
                 // Invalid credentials
@@ -99,5 +101,34 @@ export class AuthService {
         localStorage.setItem('jwt', '');
         localStorage.setItem('jwt_expires_in', '');
         localStorage.setItem('jwt_current_time', '');
+    }
+
+    async signUp(details: SignUp) {
+        console.log("Trying to sign up");
+        try {
+            const response = await fetch("/api/auth/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(details)
+            });
+            if (response.status === 201) {
+                // All good, signed up
+                const json: Token = await response.json();
+                this.setToken(json);
+                this.userService.getUserInfo(this.getToken());
+                return {status: "success", token: this.getToken()};
+            } else if (response.status === 400) {
+                // Invalid credentials
+                return {status: "failure", token: null};
+            } else {
+                // Something went wrong
+                return {status: "failure", token: null};
+            }
+        } catch(e) {
+            console.log(e);
+            return {status: "failure", token: null};
+        }
     }
 }
