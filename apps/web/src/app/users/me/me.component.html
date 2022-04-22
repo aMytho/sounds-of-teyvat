@@ -8,9 +8,12 @@
 
         <b>Your username and ID are the only things visible to other users. All other info is kept private</b>
 
-    </div>
-    <div *ngIf="user == {}">
-        <p>No user data was found. Reload your browser :)</p>
+        <div *ngIf="user == {}">
+            <p>No user data was found. Reload your browser :)</p>
+        </div>
+        <div *ngIf="covers.length == 0">
+            <p>No covers were found. Try <span class="hover:underline hover:cursor-pointer text-black" routerLink="/covers/add">uploading one!</span>.</p>
+        </div>
     </div>
 </div>
 <div class="flex flex-row flex-wrap w-full gap-12 px-8 justify-center mt-4">
