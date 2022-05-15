@@ -1,0 +1,9 @@
+<div *ngFor="let toast of getToasts" class="w-auto max-w-xs">
+    <div [ngClass]="toast.type" class="p-4 m-2 rounded-lg open-close-container relative" [@openClose]="toast.isOpen ? 'open' : 'closed'">
+        <div class="absolute right-2 top-2 cursor-pointer" (click)="removeToast(toast.id)">Close</div>
+        <h3 class="font-semibold text-lg">{{toast.type}}</h3>
+        <hr>
+        <p class="mt-2 text-sm font-normal">{{toast.message}}</p>
+
+    </div>
+</div>

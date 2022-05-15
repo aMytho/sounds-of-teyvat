@@ -1,0 +1,15 @@
+.Info {
+    background-color: rgb(80, 80, 178);
+}
+
+.Warning {
+    background-color: rgb(220, 174, 88);
+}
+
+.Error {
+    background-color: rgb(232, 86, 86);
+}
+
+.Success {
+    background-color: rgb(97, 224, 97);
+}
